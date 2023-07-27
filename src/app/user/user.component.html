@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="card text-center" style="padding: 20px;">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="search for product" aria-label="search for product"
+      [(ngModel)]="searchString"
+      >
+      <div class="input-group-append">
+        <button (click)="search(searchString)" class="btn btn-outline-secondary" type="button">Search</button>
+      </div>
+    </div>
+  </div>
+</div>

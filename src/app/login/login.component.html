@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    
+  <div class="card mx-auto" style="padding: 20px; width: 400px;">
+    
+    <h3 class="mb-4">
+      <img [src]="path" [alt]="alttext" style="height: 70px; width: 70px;">  
+      Login
+    </h3>
+     
+    <form (ngSubmit) = "onSubmit()" [formGroup] = "loginForm">
+
+      <div class="mb-3">
+        <label for="userName" class="form-label">Username</label>
+        <input type="text" class="form-control" id="userName" formControlName="userName"
+        [class.is-invalid] = "userName?.invalid && userName?.touched"
+        >
+
+        <div *ngIf="(userName?.invalid && userName?.touched) || userName?.dirty">
+          <small *ngIf="userName?.errors?.['required']" class="text-danger">Username is required</small>
+          <small *ngIf="userName?.errors?.['cannotContainSpace']" class="text-danger">username can not contain space</small>
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="userPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="userPassword" formControlName="userPassword"
+        [class.is-invalid] = "userPassword?.invalid && userPassword?.touched"
+        >
+
+        <div *ngIf="(userPassword?.invalid && userPassword?.touched) || userPassword?.dirty">
+          <small *ngIf="userPassword?.errors?.['required']" class="text-danger">Password is required</small>
+          <small *ngIf="userPassword?.errors?.['cannotContainSpace']" class="text-danger">password can not contain space</small>
+        </div>
+        
+      </div>
+            
+      <button type="submit" class="btn btn-outline-primary round-0">Login</button>
+
+    </form>
+  </div>
+</div>

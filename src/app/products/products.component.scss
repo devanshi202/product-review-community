@@ -1,0 +1,51 @@
+.button:hover {
+    transform: translateY(50px) scale(1.2);
+  }
+
+.table>tbody {
+    vertical-align: middle;
+}
+
+.card{
+  height: 87vh;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.first{
+  width: 30%;
+  padding-right: 20px;
+  height: 100%;
+  border-right: 1px solid lightgray;
+}
+
+.checkboxDiv.name{
+  overflow-y: auto;
+  height: 50%;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  div{
+    height: 30%;
+  }
+}
+
+.checkboxDiv.brand{
+  overflow-y: auto;
+  height: 30%;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  div{
+    height: 40%;
+  }
+}
+
+
+.second{
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
+

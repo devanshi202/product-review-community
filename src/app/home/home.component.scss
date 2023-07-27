@@ -1,0 +1,25 @@
+$img: url("../../assets/images/bg.jpg");
+
+.card{
+    background-image: $img;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 87vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stats{
+    height: 30%;
+    width: 80%;
+
+    div{
+        height: 80%;
+        width: 100%;
+        span{
+            font-size: x-large;
+        }
+    }
+}
+

@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="card" style="padding: 20px;">
+        <div class="first">
+            <div class="imageDiv">
+                <img [src]="imagePath" alt="..."/>
+                <h4>{{product?.productCode}}</h4>
+            </div>
+            <div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Name: <span style="text-transform:capitalize;"><b>{{product?.productName}}</b></span></li>
+                    <li class="list-group-item">Brand: <span style="text-transform:capitalize"><b>{{product?.brand}}</b></span> </li>
+                    <li class="list-group-item">Description: <span style="text-transform:capitalize"><b>{{product?.description}}</b></span></li>
+                    <li class="list-group-item">Price: <span style="text-transform:capitalize"><b>{{product?.price}}</b></span></li>
+                    <li class="list-group-item">Rating: <b>{{rating}}  (based on {{reviewCount}} reviews)</b></li>
+                  </ul>
+            </div>
+        </div>
+
+        <div class="second">
+            <div class="reviewAndButton">
+                <div>
+                    <h3>Reviews</h3>
+                </div>
+                <div>
+                    <button class="btn btn-outline-success" (click)="addReview()">Add Review</button>
+                </div>
+            </div>
+            
+            <div class = table>
+                <table class="table table-striped table-hover">
+                   <thead>
+                        <tr>
+                            <th scope="col"></th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                        <tr *ngFor="let review of filterByStatus">
+                                <td class="fs-6">{{ review.reviewDescription }}</td>
+                        </tr>
+                   </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

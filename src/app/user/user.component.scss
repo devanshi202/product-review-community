@@ -1,0 +1,16 @@
+$img: url("../../assets/images/bg.jpg");
+
+.card{
+    background-image: $img;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 87vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group{
+    max-width: 50%;
+}

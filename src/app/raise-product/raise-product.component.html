@@ -1,0 +1,64 @@
+<div *ngIf="isLoading" class="d-flex justify-content-center align-items-center flex-column" style="height: 80vh;">
+  <p >Redirecting to product in {{timer}} sec</p>
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="container mt-5" *ngIf="isLoading == false">
+    
+    <div class="card mx-auto" style="padding: 20px; width: 400px;">
+    
+      <h3 class="mb-4">
+        <img [src]="path" [alt]="alttext" style="height: 70px; width: 70px;">  
+        Add Product 
+      </h3>
+     
+      <form (ngSubmit) = "onSubmit()" [formGroup] = "productForm">
+        <div class="mb-3">
+
+          <label for="code" class="form-label">Product code</label>
+          <input type="text" class="form-control" id="code" formControlName="productCode"
+          [class.is-invalid] = "productCode?.invalid && productCode?.touched"
+          >
+
+          <div *ngIf="(productCode?.invalid && productCode?.touched) || productCode?.dirty">
+            <small *ngIf="productCode?.errors?.['required']" class="text-danger">Product code is required</small>
+            <small *ngIf="productCode?.errors?.['cannotContainSpace']" class="text-danger">product code can not contain space</small>
+          </div>
+          
+        </div>
+
+        <div class="mb-3">
+
+          <label for="name" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="name" formControlName="productName"
+          [class.is-invalid] = "productName?.invalid && productName?.touched"
+          >
+
+          <div *ngIf="(productName?.invalid && productName?.touched) || productName?.dirty">
+            <small *ngIf="productName?.errors?.['required']" class="text-danger">Product name is required</small>
+            <small *ngIf="productName?.errors?.['cannotContainSpace']" class="text-danger">product name can not contain space</small>
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label for="brand" class="form-label">Product Brand</label>
+            <input type="text" class="form-control" id="brand" formControlName="brand"
+            [class.is-invalid] = "brand?.invalid && brand?.touched"
+            >
+
+            <div *ngIf="(brand?.invalid && brand?.touched) || brand?.dirty">
+              <small *ngIf="brand?.errors?.['required']" class="text-danger">Brand is required</small>
+              <small *ngIf="brand?.errors?.['cannotContainSpace']" class="text-danger">Brand can not contain space</small>
+            </div>
+
+        </div>
+        
+        <button type="submit" class="btn btn-outline-primary round-0">Submit</button>
+
+      </form>
+    </div>
+</div>

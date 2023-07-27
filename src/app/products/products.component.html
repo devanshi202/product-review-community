@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="card" style="padding: 20px;">
+        <div class="first">
+            <h5>Filter By Brand</h5>
+            <div class="checkboxDiv brand">
+              <div *ngFor="let brand of this.formArrayObjBrand?.controls; let i=index;"
+              >
+              <input type="checkbox" [formControl]="brand" (change)="onChangeBrand();">
+              {{productBrandArray[i]}}
+              </div>
+            </div>
+
+            <h5>Filter By Name</h5>
+            <div class="checkboxDiv name" >
+                <div *ngFor="let productName of this.formArrayObj?.controls; let i=index;"
+                >
+                <input type="checkbox" [formControl]="productName" (change)="onChangeName();">
+                {{productNameArray[i]}}
+                </div>
+            </div>
+        </div>
+
+        <div class="second">
+            <table class="table  table-striped table-hover">
+               <thead>
+                    <tr>
+                        <th scope="col">Product Code</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Brand</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Image</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    <tr *ngFor="let product of updatedProductList; index as i" (click)="onRowClick(product.productCode)">
+                            <td class="fs-6">{{ product.productCode }}</td>
+                            <td class="fs-6">{{ product.productName }}</td>
+                            <td class="fs-6">{{ product.brand }}</td>
+                            <td class="fs-6">{{ product.price }}</td>
+                            <td>
+                                <img alt="..." style="max-height: 50px; max-width: 70px; width: auto;"
+                    src = {{product.image}}
+                    class="card-img-top m-2">
+                            </td>
+                    </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>

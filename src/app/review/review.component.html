@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    
+    <div class="card mx-auto" style="padding: 20px; width: 400px;">
+    
+      <h3 class="mb-4">
+        <img [src]="path" [alt]="alttext" style="height: 70px; width: 70px;">  
+        Add Review
+      </h3>
+     
+      <form (ngSubmit) = "onSubmit()" [formGroup] = "reviewForm">
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="reviewDescription"
+          [class.is-invalid] = "reviewDescription?.invalid && reviewDescription?.touched"
+          >
+          <div *ngIf="(reviewDescription?.invalid && reviewDescription?.touched) || reviewDescription?.dirty">
+            <small *ngIf="reviewDescription?.errors?.['required']" class="text-danger">Review description is required</small>
+            <small *ngIf="reviewDescription?.errors?.['cannotContainSpace']" class="text-danger">Review description can not contain space</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <input type="number" class="form-control" id="rating" formControlName="rating"
+          [class.is-invalid] = "rating?.invalid && rating?.touched"
+          >
+          <div *ngIf="(rating?.invalid && rating?.touched) || rating?.dirty">
+            <small *ngIf="rating?.errors?.['required']" class="text-danger">Rating is required</small>
+            <small *ngIf="rating?.errors?.['cannotContainSpace']" class="text-danger">Rating can not contain space.</small>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-primary round-0">Submit</button>
+      </form>
+    </div>
+</div>
